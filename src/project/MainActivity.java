@@ -14,7 +14,7 @@ import javax.swing.JButton;
 public class MainActivity extends javax.swing.JFrame {
 
     private double num1 = 0, num2 = 0, result = 0;
-    private String operator = "";
+    private String operator = "", extraOperator = "";
     private String tempNum = "";
     
     
@@ -49,6 +49,14 @@ public class MainActivity extends javax.swing.JFrame {
         btn9 = new javax.swing.JButton();
         btnDiv = new javax.swing.JButton();
         btnClr = new javax.swing.JButton();
+        btnSin = new javax.swing.JButton();
+        btnCos = new javax.swing.JButton();
+        btnTan = new javax.swing.JButton();
+        btnPower = new javax.swing.JButton();
+        btnPi = new javax.swing.JButton();
+        btnE = new javax.swing.JButton();
+        btnLog10 = new javax.swing.JButton();
+        btnLn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -174,14 +182,70 @@ public class MainActivity extends javax.swing.JFrame {
             }
         });
 
+        btnSin.setText("sin");
+        btnSin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSinActionPerformed(evt);
+            }
+        });
+
+        btnCos.setText("cos");
+        btnCos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCosActionPerformed(evt);
+            }
+        });
+
+        btnTan.setText("tan");
+        btnTan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTanActionPerformed(evt);
+            }
+        });
+
+        btnPower.setText("^n");
+        btnPower.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPowerActionPerformed(evt);
+            }
+        });
+
+        btnPi.setText("pi");
+        btnPi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPiActionPerformed(evt);
+            }
+        });
+
+        btnE.setText("e");
+        btnE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEActionPerformed(evt);
+            }
+        });
+
+        btnLog10.setText("log_10");
+        btnLog10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLog10ActionPerformed(evt);
+            }
+        });
+
+        btnLn.setText("ln");
+        btnLn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn0, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -190,50 +254,80 @@ public class MainActivity extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnSub, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnDot, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnEqual, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(14, 14, 14))
+                                .addComponent(btnEqual, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSub, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(numResult, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnClr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btn7, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btn9, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btn5, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btn6, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnDiv, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnMulti, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnPi, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(271, 271, 271)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnLn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnPower, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(numResult, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnClr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btn7, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(btn9, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btn5, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(btn6, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(btnCos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                                        .addComponent(btnE, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(35, 35, 35)
+                                            .addComponent(btnTan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addGap(21, 21, 21))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(btnLog10, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(0, 0, Short.MAX_VALUE)))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnDiv, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnMulti, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(numResult, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnClr, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSin, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCos, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTan, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPower, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnPi, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnE, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnLog10, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnLn, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn9, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -289,13 +383,9 @@ public class MainActivity extends javax.swing.JFrame {
             numResult.setText(numResult.getText() + op);
         } else {
             num2 = Double.parseDouble(tempNum);
-            switch (operator) {
-                case "+" -> result = num1 + num2;
-                case "-" -> result = num1 - num2;
-                case "x" -> result = num1 * num2;
-                case "÷" -> result = num1 / num2; 
-            }
-            System.out.print(num2+ operator+ num1+" "+result);
+            
+            operatorSwitch();
+            
             num1 = result;
             num2 = 0;
             operator = op;
@@ -360,12 +450,9 @@ public class MainActivity extends javax.swing.JFrame {
             numResult.setText(numResult.getText() + op);
         } else {
             num2 = Double.parseDouble(tempNum);
-            switch (operator) {
-                case "+" -> result = num1 + num2;
-                case "-" -> result = num1 - num2;
-                case "x" -> result = num1 * num2;
-                case "÷" -> result = num1 / num2; 
-            }
+            
+            operatorSwitch();
+            
             num1 = result;
             num2 = 0;
             operator = op;
@@ -404,12 +491,9 @@ public class MainActivity extends javax.swing.JFrame {
             numResult.setText(numResult.getText() + op);
         } else {
             num2 = Double.parseDouble(tempNum);
-            switch (operator) {
-                case "+" -> result = num1 + num2;
-                case "-" -> result = num1 - num2;
-                case "x" -> result = num1 * num2;
-                case "÷" -> result = num1 / num2; 
-            }
+            
+            operatorSwitch();
+            
         
             num1 = result;
             num2 = 0;
@@ -430,12 +514,8 @@ public class MainActivity extends javax.swing.JFrame {
 
     private void btnEqualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEqualActionPerformed
         num2 = Double.parseDouble(tempNum);
-        switch (operator) {
-            case "+" -> result = num1 + num2;
-            case "-" -> result = num1 - num2;
-            case "x" -> result = num1 * num2;
-            case "÷" -> result = num1 / num2; 
-        }
+        
+        operatorSwitch();
         
         num1 = result;
         num2 = 0;
@@ -445,6 +525,135 @@ public class MainActivity extends javax.swing.JFrame {
         numResult.setText(String.valueOf(result));
     }//GEN-LAST:event_btnEqualActionPerformed
 
+    private void btnSinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSinActionPerformed
+        String op = "sin";
+        scientificFunction(op);
+    }//GEN-LAST:event_btnSinActionPerformed
+
+    private void btnCosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCosActionPerformed
+        String op = "cos";
+        scientificFunction(op);
+    }//GEN-LAST:event_btnCosActionPerformed
+
+    private void btnTanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTanActionPerformed
+        String op = "tan";
+        scientificFunction(op);
+    }//GEN-LAST:event_btnTanActionPerformed
+
+    private void btnPowerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPowerActionPerformed
+        if (num1 == 0) {
+            num1 = Double.parseDouble(tempNum);
+            operator = "power";
+        } else {
+            num2 = Double.parseDouble(tempNum);
+            extraOperator = operator;
+            operator = "power";
+        }
+        tempNum = "";
+        numResult.setText(numResult.getText()+"^");
+    }//GEN-LAST:event_btnPowerActionPerformed
+
+    private void btnPiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPiActionPerformed
+       String number = String.valueOf(Math.PI);
+        tempNum += number;
+        numResult.setText(numResult.getText() + "π");
+    }//GEN-LAST:event_btnPiActionPerformed
+
+    private void btnEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEActionPerformed
+        String number = String.valueOf(Math.E);
+        tempNum += number;
+        numResult.setText(numResult.getText() + "e");
+    }//GEN-LAST:event_btnEActionPerformed
+
+    private void btnLog10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLog10ActionPerformed
+        String op = "log";
+        scientificFunction(op);
+    }//GEN-LAST:event_btnLog10ActionPerformed
+
+    private void btnLnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLnActionPerformed
+        String op = "ln";
+        scientificFunction(op);
+    }//GEN-LAST:event_btnLnActionPerformed
+
+    private void extraOperatorSwitch () {
+        switch (extraOperator) {
+            case "+" -> result = num1 + num2;
+            case "-" -> result = num1 - num2;
+            case "x" -> result = num1 * num2;
+            case "÷" -> result = num1 / num2; 
+        }
+    }
+    
+    private void operatorSwitch () {
+        switch (operator) {
+            case "+" -> result = num1 + num2;
+            case "-" -> result = num1 - num2;
+            case "x" -> result = num1 * num2;
+            case "÷" -> result = num1 / num2; 
+            case "sin" -> {
+                double radians = Math.toRadians(num2);
+                result = Math.sin(radians);
+                    
+                if (!extraOperator.equals("")) {
+                    num2 = result;
+                    extraOperatorSwitch();
+                }
+            } 
+            case "cos" -> {
+                double radians = Math.toRadians(num2);
+                result = Math.cos(radians);
+                    
+                if (!extraOperator.equals("")) {
+                    num2 = result;
+                    extraOperatorSwitch();
+                }
+            } 
+            case "tan" -> {
+                double radians = Math.toRadians(num2);
+                result = Math.tan(radians);
+                    
+                if (!extraOperator.equals("")) {
+                    num2 = result;
+                    extraOperatorSwitch();
+                }
+            } 
+            case "ln" -> {
+                result = Math.log(num2);
+                    
+                if (!extraOperator.equals("")) {
+                    num2 = result;
+                    extraOperatorSwitch();
+                }
+            }
+            case "log" -> {
+                result = Math.log10(num2);
+                    
+                if (!extraOperator.equals("")) {
+                    num2 = result;
+                    extraOperatorSwitch();
+                }
+            }
+            case "power" -> {
+                result = Math.pow(num1, num2);
+                System.out.print(num1 + " "+num2+ " "+result);
+            }
+            default -> throw new IllegalArgumentException("Invalid operator: " + operator);
+        }
+    }
+    
+    private void scientificFunction (String op) {
+        if (operator.isEmpty()) {
+            num1 = !"".equals(tempNum) ? Double.parseDouble(tempNum) : 0;
+            operator = op;
+            numResult.setText(numResult.getText() + op);
+        } else {
+            extraOperator = operator;
+            num2 = 0;
+            operator = op;
+            numResult.setText(numResult.getText()+operator);
+        }
+        tempNum = "";
+    }
     /**
      * @param args the command line arguments
      */
@@ -493,11 +702,19 @@ public class MainActivity extends javax.swing.JFrame {
     private javax.swing.JButton btn9;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnClr;
+    private javax.swing.JButton btnCos;
     private javax.swing.JButton btnDiv;
     private javax.swing.JButton btnDot;
+    private javax.swing.JButton btnE;
     private javax.swing.JButton btnEqual;
+    private javax.swing.JButton btnLn;
+    private javax.swing.JButton btnLog10;
     private javax.swing.JButton btnMulti;
+    private javax.swing.JButton btnPi;
+    private javax.swing.JButton btnPower;
+    private javax.swing.JButton btnSin;
     private javax.swing.JButton btnSub;
+    private javax.swing.JButton btnTan;
     private javax.swing.JLabel numResult;
     // End of variables declaration//GEN-END:variables
 }
