@@ -469,12 +469,9 @@ public class MainActivity extends javax.swing.JFrame {
             numResult.setText(numResult.getText() + op);
         } else {
             num2 = Double.parseDouble(tempNum);
-            switch (operator) {
-                case "+" -> result = num1 + num2;
-                case "-" -> result = num1 - num2;
-                case "x" -> result = num1 * num2;
-                case "÷" -> result = num1 / num2; 
-            }
+            
+            operatorSwitch();
+            
             num1 = result;
             num2 = 0;
             operator = op;
